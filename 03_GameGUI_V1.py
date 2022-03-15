@@ -14,30 +14,20 @@ class Start:
         self.start_amount_entry = Entry(self.start_frame, font="Arial 16 bold")
         self.start_amount_entry.grid(row=2)
 
-        self.stakes_frame = Frame(self.start_frame)
-        self.stakes_frame.grid(row=3, pady=10)
-
-        self.lowstakes_button = Button(self.stakes_frame, text="Low(5$)", command=lambda: self.to_game(1))
-        self.lowstakes_button.grid(row=0, column=0)
-
-        self.mediumstakes_button = Button(self.stakes_frame, text="medium(10$)", command=lambda: self.to_game(2))
-        self.mediumstakes_button.grid(row=0, column=1)
-
-        self.highstakes_button = Button(self.stakes_frame, text="high(15$)", command=lambda: self.to_game(3))
-        self.highstakes_button.grid(row=0, column=2)
-
-        self.help_button = Button(self.start_frame, text="help/Rules")
-        self.help_button.grid(row=4, pady=10)
+        self.lowstakes_button = Button(text="Low(5$)", command=lambda: self.to_game(1))
+        self.lowstakes_button.grid(row=2, pady=0)
 
     def to_game(self, stakes):
         starting_balance = self.start_amount_entry.get()
         Game(self, stakes, starting_balance)
+        root.withdraw()
 
 
 class Game:
     def __init__(self, partner, stakes, starting_balance):
         print(stakes)
         print(starting_balance)
+        partner.lowstakes_button.config(state=DISABLED)
 
         self.balance = IntVar()
 

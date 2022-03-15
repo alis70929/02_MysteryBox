@@ -1,5 +1,4 @@
 from tkinter import *
-from tracemalloc import start
 
 
 class Start:
