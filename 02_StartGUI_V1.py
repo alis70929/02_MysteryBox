@@ -52,7 +52,7 @@ class Start:
 
             if starting_balance < 5:
                 has_errors = "yes"
-                error_feedback = "Too Low! The least you can pllay with is $5"
+                error_feedback = "Too Low! The least you can play with is $5"
             elif starting_balance > 50:
                 has_errors = "yes"
                 error_feedback = "Too High! Max you can play with is $50"
